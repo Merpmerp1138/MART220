@@ -9,13 +9,14 @@ function setup()
 
 function draw()
 {
+    background(50,200,100);
     createCharacter();
     moveCharacter();
 }
 
 function createCharacter()
 {
-    circle(characterX,characterY,20);
+    circle(characterX,characterY,50);
 }
 
 function moveCharacter()
@@ -34,6 +35,6 @@ function moveCharacter()
         }
     if(keyIsDown(39)) //right
         {
-            CharacterX+=8;
+            characterX+=8;
         }
 }
