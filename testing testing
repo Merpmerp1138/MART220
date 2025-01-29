@@ -1,7 +1,3 @@
-characterX = 50;
-characterY = 550;
-
-
 function setup()
 {
     createCanvas(600,600);
@@ -12,6 +8,7 @@ function draw()
     background(50,200,100);
     createCharacter();
     moveCharacter();
+    createCollectable();
 }
 
 function createCharacter()
@@ -37,4 +34,9 @@ function moveCharacter()
         {
             characterX+=8;
         }
+}
+
+function createCollectable
+{
+    
 }
