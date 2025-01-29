@@ -1,0 +1,39 @@
+characterX = 50;
+characterY = 550;
+
+
+function setup()
+{
+    createCanvas(600,600);
+}
+
+function draw()
+{
+    createCharacter();
+    moveCharacter();
+}
+
+function createCharacter()
+{
+    circle(characterX,characterY,20);
+}
+
+function moveCharacter()
+{
+    if(keyIsDown(38)) //up
+        {
+            characterY-=8;
+        }
+    if(keyIsDown(40)) //down
+        {
+            characterY+=8;
+        }
+    if(keyIsDown(37)) //left
+        {
+            characterX-=8;
+        }
+    if(keyIsDown(39)) //right
+        {
+            CharacterX+=8;
+        }
+}
