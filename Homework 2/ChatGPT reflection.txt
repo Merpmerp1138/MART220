@@ -1,0 +1,18 @@
+
+Asking ChatGPT for help this time around created relatively similar results to 
+when I asked the first time. The colors were still on the dull side, and the
+shapes all had black outlines. However, this time I had to do a bit more 
+tweaking to get the crust to look right since it started off looking like a 
+weird arc at the tip of the triangle which was fun. 
+
+When I asked to add the different objectives it did a very effective job. I
+thought it was interesting that it combined the “shapes should move randomly” and
+“incorporate event handling,” so now when you click the mouse the toppings all
+pick a new spot to be in. 
+
+I honestly didn’t fully understand everything that ChatGPT wrote, but I’m sure
+if I broke it down more it would help me better understand the “random” command,
+and also help refresh my memory on arrays. I feel neutral on whether or not it 
+was helpfull. I definitely appreciate seeing different ways to solve the same
+problems, but I often learn better when I’m the one writing code compared to 
+me reading someone else's code.
