@@ -1,0 +1,42 @@
+function setup()
+{
+    createCanvas(600,600);
+}
+
+function draw()
+{
+    background(50,200,100);
+    createCharacter();
+    moveCharacter();
+    createCollectable();
+}
+
+function createCharacter()
+{
+    circle(characterX,characterY,50);
+}
+
+function moveCharacter()
+{
+    if(keyIsDown(38)) //up
+        {
+            characterY-=8;
+        }
+    if(keyIsDown(40)) //down
+        {
+            characterY+=8;
+        }
+    if(keyIsDown(37)) //left
+        {
+            characterX-=8;
+        }
+    if(keyIsDown(39)) //right
+        {
+            characterX+=8;
+        }
+}
+
+function createCollectable
+{
+    
+}
