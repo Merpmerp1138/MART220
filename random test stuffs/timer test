@@ -1,0 +1,39 @@
+var timerValue = 10;
+var startButton;
+var circleX = 350
+
+function setup() {
+  createCanvas(400, 400);
+  textAlign(CENTER);
+  setInterval(timeIt, 1000);
+}
+
+function draw() {
+  background(220);
+  if (timerValue >= 10) {
+    text("0:" + timerValue, width / 2, height / 2);
+  }
+  if (timerValue < 10) {
+    text('0:0' + timerValue, width / 2, height / 2);
+  }
+  if (timerValue == 0) {
+    text('game over', width / 2, height / 2 + 15);
+  }
+  
+  runCircle();
+}
+
+function runCircle()
+{
+  if (timerValue > 0) {
+     circle(circleX,350,50);
+  
+  circleX -= timerValue - timerValue + 0.2;
+  }
+}
+
+function timeIt() {
+  if (timerValue > 0) {
+    timerValue--;
+  }
+}
