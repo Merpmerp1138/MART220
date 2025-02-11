@@ -1,0 +1,8 @@
+For this assignment I wasn’t entirely sure what our objective was in creating an image with AI,
+so I went with asking ChatGPT to create an image of a pineapple using p5.js. I chose to use
+ChatGPT mainly because that’s the one I’m most familiar with. In the beginning it asked me a
+few questions that surprised me. It asked if I wanted the image to be complex or if it should
+be simple and stylized, and it also asked if I wanted a background color which it’s never asked 
+before. I told it to use simple shapes, and a light blue background and in the end the resulting
+image was pretty interesting. Definitely not the most amazing thing I’ve ever seen, but it was 
+pretty good for being made out of p5.js shapes. 
