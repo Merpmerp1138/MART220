@@ -31,7 +31,7 @@ function preload()
     pineapple2 = loadImage('images/pineapple2.jpg');
     GPTpineapple = loadImage("images/ChatGPTpineapple.png");
     Hedgehog = loadImage('images/hedgehog.jpg');
-    myFont = loadFont('fonts/KumarOne-Regular.ttf')
+    myFont = loadFont('fonts/Kumar_One/KumarOne-Regular.ttf')
 }
 
 function setup()
@@ -194,7 +194,7 @@ function writeName()
     fill(0);
     textSize(33);
 
-    text('Kaitlyn :D',640,570);
+    text('Kaitlyn :D',600,570);
 
 }
 
@@ -222,17 +222,17 @@ function mouseClicked ()
 
 function drawImages ()
 {
-    image(Hedgehog, HedgehogX, 50);
-    image(pineapple1, 150, 75);
-    image(pineapple2, 250, 120);
-    image(GPTpineapple, 350, 200);
+    image(Hedgehog, HedgehogX, 175);
+    image(pineapple1, 20, 75);
+    image(pineapple2, 680, 380);
+    image(GPTpineapple, 30, 400);
 }
 
 function runHedgehog()
 {
   if (timerValue > 0) 
     {
-        HedgehogX += timerValue - timerValue + 0.5;
+        HedgehogX += timerValue - timerValue + 1;
     }
 }
 
