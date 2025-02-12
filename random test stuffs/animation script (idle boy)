@@ -1,0 +1,31 @@
+var animation = [];
+var i = 0
+var myBoy;
+
+function preload()
+{
+    myBoy = new theBoy ("../images/flatboy/png/.....");
+
+    for (var i = 0; i < 10; i + 1);
+    {
+        animation.push()
+    }
+
+}
+
+function setup()
+{
+    createCanvas(600,600);
+    setInterval(updateIndex, 50);
+}
+
+function draw()
+{
+    background(100);
+    animation[i].draw();
+}
+
+function updateIndex ()
+{
+    
+}
