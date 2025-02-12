@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <script src="libs/p5.js"></script>
+        <script src="js/theBoy.js"></script>
+        <script src="js/animation script.js"></script>
+    </head>
+
+    <body>
+
+    </body>
+</html>
