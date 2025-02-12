@@ -1,0 +1,15 @@
+class theBoy
+{
+    constructor (path)
+    {
+        this.path = path;
+
+        this.myImage = loadImage(this.path);
+
+    }
+
+    draw()
+    {
+        image(myImage);
+    }
+}
