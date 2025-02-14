@@ -1,19 +1,19 @@
+
 var animation = [];
-var i = 0;
+var i = 1;
 var myBoy;
-/*/
 function preload()
 {
   
 
-    for (var i = 0; i < 13; i ++);
+    for(var i = 1; i < 10; i ++);
     {
-        myBoy = new theBoy("../images/flatboy/png/Dead(" + i + ").png");
+        myBoy = new theBoy("../images/Idle (" + i + ").png");
         animation.push(theBoy);
     }
 
 }
-/*/
+
 function setup()
 {
     createCanvas(600,600);
@@ -23,16 +23,56 @@ function setup()
 function draw()
 {
     background(100);
-    //loadImage("../images/flatboy/png/Dead(1).png");
-    //animation[i].draw();
+    animation[i].draw();
 }
 
 function updateIndex ()
 {
     i++;
-    if(i > 14)
+    if(i > 9)
     {
         i = 0;
     }
+
 }
+/*/
+
+
+var animation = [];
+var i = 0;
+var myBoy;
+function preload()
+{
+
+   
+    for(var i = 1; i < 10; i++)
+    {
+        myBoy = new theBoy("../images/Idle (" + i + ").png");  
+        animation.push(theBoy);
+    }
+    
+}
+
+function setup()
+{
+    createCanvas(800, 800);
+    setInterval(updateIndex, 50);
+}
+
+function draw()
+{
+    background(120);
+    animation[i].draw();
+}
+
+function updateIndex()
+{
+    i++;
+    if(i > 9)
+    {
+        i = 0;
+    }
+    
+}
+/*/
     
