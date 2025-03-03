@@ -11,7 +11,6 @@ class theBoy
 
         this.imageWidth = 90;
         this.imageHeight = 141;
-        //this.flipX = false;
     }
 
     draw()
