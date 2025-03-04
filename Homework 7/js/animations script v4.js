@@ -14,6 +14,11 @@ var timerValue = 10;
 
 var score = 0; 
 
+//var myEnemies;
+//var = makeAllEnemies = [];
+
+//var = myCanvas
+
 function preload()
 {
     
@@ -47,11 +52,24 @@ function setup()
             myFood = new food(random(100,500), random(100,500));
             makeAllFood.push(myFood);
         }
-
+/*/
+    for (let i = 0; i < 8; i++)
+        {
+            myEnemies = new food(random(100,500), random(100,500));
+            makeAllenemies.push(myFood);
+        }
+/*/
 
     
 
+        /*/
+    for (let i = 0; i < 3; i++)
+    {
     
+    }
+/*/
+        //myCanvas.mousePressed(playBackgroundSound);
+
 }
 
 function draw()
@@ -59,6 +77,7 @@ function draw()
     background(241,230,255);
 
     loadFood();
+    //loadEnemies();
     moveBoy();
     addTimer(); 
     displayScore();
@@ -71,7 +90,15 @@ function loadFood()
             makeAllFood[i].draw();
         }
 }
-
+/*/
+function loadEnemies()
+{
+    for (let i = 0; i < makeAllFood.length; i++)
+        {
+            makeAllFood[i].draw();
+        }
+}
+/*/
 function shiftFoodAround()
 {
     for (let i = 0; i < makeAllFood.length; i++)
@@ -127,7 +154,8 @@ function moveBoy()
             {
                 animation[i].draw();
             }
-
+            
+             //if(collideRectRect(animation[i].x, animation[i].y, ))
 }
 
 function addTimer()
