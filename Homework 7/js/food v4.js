@@ -6,10 +6,18 @@ class food
         this.y = y;
     }
     
-    draw()
+    goodFood()
     {
+        strokeWeight(1);
         fill(102, 0, 204)
         circle(this.x, this.y, 32)
+    }
+
+    badFood()
+    { 
+        strokeWeight(1);
+        fill(192, 0 ,0) //--
+        circle(this.x, this.y, 32) //--
     }
 
 

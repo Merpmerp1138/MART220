@@ -9,27 +9,32 @@ var makeAllFood = [];
 var idleStrings = [];
 var runStrings = [];
 var flipX = false;
-
 var timerValue = 10; 
-
 var score = 0; 
 
-//var myEnemies;
-//var = makeAllEnemies = [];
+var myBadFood; 
+var makeAllBadFood = []; 
 
-//var = myCanvas
+var myCanvas;
 
 function preload()
 {
-    
+    soundFormats('wav','m4a');
+    myBackgroundSound = loadSound('../sound/724821__lovescotch__measured-approach.wav')
+    myBadSound = loadSound('../sound/badFood.m4a')
+    myGoodSound = loadSound('../sound/goodFood.m4a')
+
     idleStrings = loadStrings("../data/idle.txt");
     runStrings = loadStrings("../data/run.txt"); 
 
+
 }
+
 
 function setup()
 {
-    createCanvas(600,600);
+    let myCanvas = createCanvas(600,600);
+
     setInterval(updateIndex, 50);
     setInterval(timerTime, 1000);
     setInterval(shiftFoodAround, 2000);
@@ -50,25 +55,16 @@ function setup()
     for (let i = 0; i < 8; i++)
         {
             myFood = new food(random(100,500), random(100,500));
-            makeAllFood.push(myFood);
+            makeAllFood.push(myFood);   
         }
-/*/
-    for (let i = 0; i < 8; i++)
+
+    for (let i = 0; i < 4; i++)
         {
-            myEnemies = new food(random(100,500), random(100,500));
-            makeAllenemies.push(myFood);
+            myBadFood = new food(random(100,500), random(100,500));
+            makeAllBadFood.push(myBadFood)
         }
-/*/
-
     
-
-        /*/
-    for (let i = 0; i < 3; i++)
-    {
-    
-    }
-/*/
-        //myCanvas.mousePressed(playBackgroundSound);
+   myCanvas.mousePressed(playBackgroundSound);
 
 }
 
@@ -77,7 +73,6 @@ function draw()
     background(241,230,255);
 
     loadFood();
-    //loadEnemies();
     moveBoy();
     addTimer(); 
     displayScore();
@@ -87,18 +82,15 @@ function loadFood()
 {
     for (let i = 0; i < makeAllFood.length; i++)
         {
-            makeAllFood[i].draw();
+            makeAllFood[i].goodFood();
         }
-}
-/*/
-function loadEnemies()
-{
-    for (let i = 0; i < makeAllFood.length; i++)
+
+    for (let i = 0; i < makeAllBadFood.length; i++)
         {
-            makeAllFood[i].draw();
+            makeAllBadFood[i].badFood();
         }
 }
-/*/
+
 function shiftFoodAround()
 {
     for (let i = 0; i < makeAllFood.length; i++)
@@ -106,8 +98,6 @@ function shiftFoodAround()
             makeAllFood[i].x = random(100,500);
             makeAllFood[i].y = random(100,500);
         }
-
-    loadFood();
 }
 
 function moveBoy()
@@ -142,24 +132,38 @@ function moveBoy()
                     runAnimation[i].x = x; 
                     runAnimation[i].y = y; 
                 }
+               
             for (let k = 0; k < makeAllFood.length; k++)
                 {
-                    if (animation[i].eat(makeAllFood[k].x, makeAllFood[k].y, 10, 10)) {
-                        makeAllFood.splice(k, 1); //find the item in my array that I collided with and cut it?
-                        score += 1; 
+                    if (collideRectRect(animation[i].x, animation[i].y, animation[i].imageWidth, animation[i].imageHeight, makeAllFood[k].x, makeAllFood[k].y, 10, 10) )
+                    {
+                        makeAllFood.splice(k,1);
+                        score +=1;
+                        myGoodSound.play()
+                        myGoodSound.setVolume(0.5);
                     }
                 }
-            }
+            for (let k = 0; k < makeAllBadFood.length; k++)
+                {
+                    if (collideRectRect(animation[i].x, animation[i].y, animation[i].imageWidth, animation[i].imageHeight, makeAllBadFood[k].x, makeAllBadFood[k].y, 10, 10) )
+                    {
+                        makeAllBadFood.splice(k,1);
+                        score -=1;
+                        myBadSound.play()
+                        myBadSound.setVolume(2);
+                    }
+                }
+        }
             else
             {
                 animation[i].draw();
             }
-            
-             //if(collideRectRect(animation[i].x, animation[i].y, ))
 }
 
 function addTimer()
 { 
+fill(102, 0, 204)
+strokeWeight(0);
 if (timerValue >= 10)
 {
     text("0:" + timerValue, 75, 50)
@@ -171,6 +175,11 @@ if(timerValue < 10)
 if(timerValue == 0)
 {
     text("GAME OVER", 75, 75)
+
+    noFill();
+    stroke(102, 0, 204);
+    strokeWeight(2);
+    animS.circle('c1', 80, 500, 42, 50, 100);
 }
 }
 
@@ -195,4 +204,11 @@ function timerTime()
 function displayScore()
 {
     text(score, 500, 50);
+}
+
+function playBackgroundSound()
+{
+    myBackgroundSound.play();
+    myBackgroundSound.loop();
+    myBackgroundSound.setVolume(0.2);
 }
