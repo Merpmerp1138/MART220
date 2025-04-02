@@ -68,7 +68,6 @@ function moveBoy()
         myAnimation.updatePosition('forward'); //--
         myAnimation.drawAnimation('walk'); //--
         myAnimation.currentAnimation.overlaps(allBombs, explode); //may not need? may just need attack?
-
          
     }
     else if(kb.pressing('a')) //--
