@@ -3,8 +3,11 @@ var ship
 var shipX = 500;
 var shipY = 200;
 
-var testX = 0;
-var testY = 0;
+var backGX = 0;
+var backGY = 0;
+
+var pointX = 500;
+var pointY = 500;
 
 function preload()
 {
@@ -38,11 +41,9 @@ function draw()
 
     drawBackground();
 
-    //createRocket();
-
     moveRocket();
 
-
+    drawPointer();
     
 
 }
@@ -54,48 +55,43 @@ function drawBackground()
     push();
     scale(0.8);
     tint(225, 185);
-    image(spaceBackground, testX, testY);
+    image(spaceBackground, backGX, backGY);
     pop();
 
-    /*
-    if(shipX > 2500 && testX > -700)
+    
+    if(pointX > 600 && backGX > -700)
     {
-        testX -= 5;
+        backGX -= 3;
     }
-    if(shipX < 1500 && testX < 30)
+    if(pointX < 300 && backGX < 30)
     {
-        testX += 5;
+        backGX += 3;
     }
-    if(shipY < 700 && testY < 30)
+    if(pointY < 100 && backGY < 30)
     {
-        testY += 5;
+        backGY += 3;
     }
-    if(shipY > 1200 && testY > -540)
+    if(pointY > 500 && backGY > -540)
     {
-        testY -= 5;
+        backGY -= 3;
     }
-        */
+        
 }
 
-
-function createRocket()
+function drawPointer()
 {
-    push();
-    //scale(0.2);
-    //tint(225, 325);
+    circle(pointX,pointY, 10);
 
-    ship = createSprite(shipX, shipY);
-    ship.img = "../images/Spaceship v2.png";
-    ship.scale = 0.2;
-    //image(ship, shipX, shipY);
-    pop();
+    pointX += (mouseX - pointX);// * 0.04; 
+    pointY += (mouseY - pointY);// * 0.04;
 
 }
+
 
 function moveRocket()
 {
 
-    ship.moveTowards(mouse, 0.02);
+    ship.moveTowards(mouse, 0.01);
     ship.rotateTowards(mouse, 0.1, 3);
     /*
     if(kb.pressing('up')) //up
