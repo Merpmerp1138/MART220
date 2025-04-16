@@ -18,8 +18,6 @@ var wallRight;
 
 function preload()
 {
-    //spaceArray = loadStrings("../data/spaceship.txt");
-    //ship = loadImage("../images/Spaceship v2.png")
     spaceBackground = loadImage("../images/space background.jpg")
 }
 
@@ -28,24 +26,15 @@ function setup()
     //createCanvas(1000,550);
     createCanvas(canvasWidth, canvasHeight);
 
-
     invisibleBoundry();
 
-    push();
-    //scale(0.2);
-    //tint(225, 325);
-
+    createRocket();
     
-    ship = createSprite(shipX, shipY);
-    ship.img = "../images/Spaceship v2.png";
-    ship.scale = 0.2;
-    //image(ship, shipX, shipY);
-    pop();
-
-
-
-    
-
+    /*
+    testPlanet = createSprite(300, 300);
+    testPlanet.img = "../images/Spaceship test v1.png"
+    testPlanet.scale = 0.1;
+    */
 }
 
 
@@ -60,6 +49,7 @@ function draw()
 
     //invisibleBoundry();
     
+    //testPlanet.moveTowards(mouse, -0.01);
 
 }
 
@@ -102,6 +92,12 @@ function drawPointer()
 
 }
 
+function createRocket()
+{
+    ship = createSprite(shipX, shipY);
+    ship.img = "../images/Spaceship v2.png";
+    ship.scale = 0.2;
+}
 
 function moveRocket()
 {
