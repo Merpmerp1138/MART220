@@ -1,13 +1,20 @@
-//var spaceArray = [];
-var ship
+var canvasWidth = 1000;
+var canvasHeight = 550;
+
+var ship;
 var shipX = 500;
 var shipY = 200;
 
-var backGX = 0;
-var backGY = 0;
+var backGX = -200;
+var backGY = -200;
 
 var pointX = 500;
 var pointY = 500;
+
+var wallTop;
+var wallBottom;
+var wallLeft;
+var wallRight;
 
 function preload()
 {
@@ -18,17 +25,23 @@ function preload()
 
 function setup()
 {
-    createCanvas(1000,550);
+    //createCanvas(1000,550);
+    createCanvas(canvasWidth, canvasHeight);
+
+
+    invisibleBoundry();
 
     push();
     //scale(0.2);
     //tint(225, 325);
 
+    
     ship = createSprite(shipX, shipY);
     ship.img = "../images/Spaceship v2.png";
     ship.scale = 0.2;
     //image(ship, shipX, shipY);
     pop();
+
 
 
     
@@ -44,6 +57,8 @@ function draw()
     moveRocket();
 
     drawPointer();
+
+    //invisibleBoundry();
     
 
 }
@@ -53,13 +68,13 @@ function drawBackground()
     background(200);
 
     push();
-    scale(0.8);
+    scale(1.5);
     tint(225, 185);
     image(spaceBackground, backGX, backGY);
     pop();
 
     
-    if(pointX > 600 && backGX > -700)
+    if(pointX > 600 && backGX > -1275)
     {
         backGX -= 3;
     }
@@ -69,11 +84,11 @@ function drawBackground()
     }
     if(pointY < 100 && backGY < 30)
     {
-        backGY += 3;
+        backGY += 2;
     }
-    if(pointY > 500 && backGY > -540)
+    if(pointY > 500 && backGY > -865)
     {
-        backGY -= 3;
+        backGY -= 2;
     }
         
 }
@@ -92,7 +107,8 @@ function moveRocket()
 {
 
     ship.moveTowards(mouse, 0.01);
-    ship.rotateTowards(mouse, 0.1, 3);
+    ship.rotateTowards(mouse, 0.4, 0);
+    ship.diameter = 100;
     /*
     if(kb.pressing('up')) //up
     {
@@ -120,4 +136,24 @@ function moveRocket()
         ship.vel.y = 0;
     }
 */
+}
+
+function invisibleBoundry()
+{
+    wallTop = new Sprite(0, -40, canvasWidth * 2, 200, STA);
+    wallTop.color = '#00000000';
+    wallTop.stroke = '#00000000';
+
+    wallBottom = new Sprite(0, 590, canvasWidth * 2, 200, STA);
+    wallBottom.color = '#00000000';
+    wallBottom.stroke = '#00000000';
+
+    wallLeft = new Sprite(-40, 100, 200, 1000, STA);
+    wallLeft.color = '#00000000';
+    wallLeft.stroke = '#00000000';
+
+    wallRight = new Sprite(1040, 160, 200, 1000, STA);
+    wallRight.color = '#00000000';
+    wallRight.stroke = '#00000000';
+
 }
